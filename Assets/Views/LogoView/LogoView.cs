@@ -7,7 +7,7 @@ public class LogoView : MonoBehaviour {
 
 	private int tweenCount = 0;
 	private int maxTween = 0;
-	private float coolTime = 1.0f;
+	private float coolTime = 1.5f;
 	// Use this for initialization
 	void Start () {
 		Initialization();
@@ -37,7 +37,10 @@ public class LogoView : MonoBehaviour {
 		else
 		{
 			//To next Scene
-			Debug.Log( "Next scene!" );
+			if( this.tag == "Logo" )
+			{
+				Debug.Log( "Next scene!" );
+			}
 		}
 	}
 
