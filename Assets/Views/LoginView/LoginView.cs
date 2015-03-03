@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class LoginView : MonoBehaviour {
-	public GameObject loading;
+	public GameObject loadingObj;
 
 	// Use this for initialization
 	void Start () {
-		loading.SetActive( false );
+		loadingObj.SetActive( false );
 	}
 	
 	// Update is called once per frame
@@ -18,16 +18,16 @@ public class LoginView : MonoBehaviour {
 	}
 
 	bool ClickCheck () {
-		bool flag = false;
-		if(Input.anyKeyDown || Input.touchCount > 0)
+		if( Input.anyKeyDown || Input.touchCount > 0 )
 		{
-			flag = true;
+			return true;
 		}
 
-		return flag;
+		return false;
 	}
 
 	void ConnectLoading () {
-		loading.SetActive( true );
+		loadingObj.SetActive( true );
+		Loading._state = Loading.State.Login;
 	}
 }
