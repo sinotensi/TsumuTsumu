@@ -442,11 +442,11 @@ namespace MiniJSON {
             void SerializeObject(IDictionary obj) {
                 bool first = true;
 
-                builder.Append('{');
+				builder.AppendLine("{");
 
                 foreach (object e in obj.Keys) {
                     if (!first) {
-                        builder.Append(',');
+						builder.AppendLine(",");
                     }
 
                     SerializeString(e.ToString());
@@ -457,7 +457,7 @@ namespace MiniJSON {
                     first = false;
                 }
 
-                builder.Append('}');
+				builder.AppendLine("\n}");
             }
 
             void SerializeArray(IList anArray) {
@@ -467,7 +467,7 @@ namespace MiniJSON {
 
                 foreach (object obj in anArray) {
                     if (!first) {
-                        builder.Append(',');
+						builder.AppendLine( "," );
                     }
 
                     SerializeValue(obj);
