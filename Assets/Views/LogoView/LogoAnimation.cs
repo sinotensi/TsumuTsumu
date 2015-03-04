@@ -12,20 +12,22 @@ public class LogoAnimation : MonoBehaviour {
 	public static bool End = false;
 	// Use this for initialization
 	void Start () {
-		Initialization();
+		Initialize();
 	}
-	
+
+	/// <summary>
+	/// Initialization all data.
+	/// </summary>
+	void Initialize () {
+		alphaTween = this.GetComponent<uTweenAlpha>();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		
 	}
 	
-	/// <summary>
-	/// Initialization this instance.
-	/// </summary>
-	void Initialization () {
-		alphaTween = this.GetComponent<uTweenAlpha>();
-	}
+
 	
 	/// <summary>
 	/// Tweens the end action.

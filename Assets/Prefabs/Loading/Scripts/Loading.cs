@@ -21,6 +21,13 @@ public class Loading : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Initialize();
+	}
+
+	/// <summary>
+	/// Initialize all data.
+	/// </summary>
+	void Initialize () {
 		loadAction.Add( State.Login, Login );
 		loadAction.Add( State.CreateUser, CreateUser );
 		loadAction.Add( State.LoadData, LoadData );
@@ -28,7 +35,7 @@ public class Loading : MonoBehaviour {
 		loadAction.Add( State.InGame, GamePlay );
 		loadAction.Add( State.Party, Party );
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		Action_Check();
@@ -49,7 +56,7 @@ public class Loading : MonoBehaviour {
 	}
 
 	void CreateUser () {
-
+		SceneController.NextScene( "LoadingView" );
 	}
 
 	void LoadData () {
