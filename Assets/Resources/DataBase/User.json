@@ -1,10 +1,11 @@
 {
     "UID": "1234-5678-9012",
     "Name": "User",
-    "Sta": 10,
+    "StaNow": 10,
+    "StaMax": 10,
     "Lv": 1,
-    "ExpNow": 0,
-    "ExpNext": 0,
+    "Exp": 0,
+    "Cost": 0,
     "Gold": 0,
     "LoginTime": "",
     "ActiveParty": "party1"

@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using MiniJSON;
 
 public class NameInput : MonoBehaviour {
-	private PopUpControll popControll;
-	Dictionary<string, object> json = new Dictionary<string, object>();
+	Dictionary<string, object> user = new Dictionary<string, object>();
+	Dictionary<string, object> lv = new Dictionary<string, object>();
 
 	public Button ok_Button;
 	public Text inputText;
@@ -28,7 +28,8 @@ public class NameInput : MonoBehaviour {
 	/// Initialize all data.
 	/// </summary>
 	void Initialize () {
-		popControll = this.GetComponent<PopUpControll>();
+		user = Json.Deserialize ( JSON_Manager.jsonUser ) as Dictionary<string, object>;
+		lv = Json.Deserialize ( JSON_Manager.jsonLv ) as Dictionary<string, object>;
 	}
 
 	// Update is called once per frame
@@ -69,21 +70,27 @@ public class NameInput : MonoBehaviour {
 		//Can check input name.
 
 		InstanceUser();
-		PlayerPrefs.SetString( "UserId", (string)json["UID"] );
-		JSON_Manager.JsonFile_Save( JSON_Manager.savePath[0], json );
-		Loading._state = Loading.State.CreateUser;
-		popControll.CloseAnimation();
-		NewUserView.loadingObj.SetActive( true );
+		PlayerPrefs.SetString( "UserId", (string)user["UID"] );
+
+		string savedata = Json.Serialize( user );
+		JSON_Manager.JsonFile_SaveByPrefs( JSON_Manager.savePath[0], savedata );
+
+		Loading._state = Loading.State.MyPageView;
+		SceneController.NextScene( "LoadingView" );
 	}
 
 	/// <summary>
 	/// Instances the user data.
 	/// </summary>
 	public void InstanceUser () {
-		json = JSON_Manager.JsonFile_Load( JSON_Manager.loadPath[0] );
+		string lvKey = ((long)user["Lv"]).ToString();
+		List<object> data = (List<object>)(lv[lvKey]);
 
-		json["UID"] = User.CreateUID() + "-" + User.CreateUID() + "-" + User.CreateUID();
-		json["Name"] = inputText.text;
-		json["LoginTime"] = TimeManager.GetNowTime();
+		user["UID"] = User.CreateUID() + "-" + User.CreateUID() + "-" + User.CreateUID();
+		user["Name"] = inputText.text;
+		user["StaNow"] = (long)data[1];
+		user["StaMax"] = (long)data[1];
+		user["Cost"] = (long)data[0];
+		user["LoginTime"] = TimeManager.GetNowTime();
 	}
 }

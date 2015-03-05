@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using MiniJSON;
 
 public class NewUserView : MonoBehaviour {
-	public static GameObject loadingObj;
+	public static GameObject Mask;
 	public static GameObject nameInput;
 
 	// Use this for initialization
@@ -18,9 +18,8 @@ public class NewUserView : MonoBehaviour {
 	/// Initialize all data.
 	/// </summary>
 	void Initialize () {
-		loadingObj = GameObject.Find( "Loading" );
+		Mask = GameObject.Find( "Mask" );
 		nameInput = GameObject.Find( "NameInput" );
-		loadingObj.SetActive( false );
 		nameInput.SetActive( false );
 	}
 
@@ -35,11 +34,12 @@ public class NewUserView : MonoBehaviour {
 	void UserDataCheck () {
 		if( PlayerPrefs.HasKey( "UserId" ) )
 		{
-			Loading._state = Loading.State.CreateUser;
-			loadingObj.SetActive( true );
+			Loading._state = Loading.State.MyPageView;
+			SceneController.NextScene( "LoadingView" );
 		}
 		else
 		{
+			Mask.SetActive( false );
 			nameInput.SetActive( true );
 		}
 	}
