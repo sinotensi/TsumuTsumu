@@ -13,6 +13,7 @@ public class LoginView : MonoBehaviour {
 	/// Initialize all data.
 	/// </summary>
 	void Initialize () {
+		JSON_Manager.Initialize();
 		loadingObj.SetActive( false );
 	}
 
@@ -41,7 +42,7 @@ public class LoginView : MonoBehaviour {
 	/// Gos to login scene.
 	/// </summary>
 	void GoToLoginScene () {
-		loadingObj.SetActive( true );
-		Loading._state = Loading.State.Login;
+		Loading._state = Loading.State.NewUserView;
+		SceneController.NextScene( "LoadingView" );
 	}
 }

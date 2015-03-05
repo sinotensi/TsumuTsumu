@@ -7,11 +7,11 @@ using MiniJSON;
 public class User : MonoBehaviour {
 	public static string 		uUID;
 	public static string 		uName;
-	public static int 	 		uSta;
-	public static int			uLv;
-	public static int	 		uNowExp;
-	public static int	 		uNextExp;
-	public static int	 		uMoney;
+	public static long 	 		uStaNow;
+	public static long			uStaMax;
+	public static long			uLv;
+	public static long	 		uExp;
+	public static long	 		uCoin;
 	public static string 		uLoginTime;
 	public static string		uActiveParty;
 
@@ -30,13 +30,13 @@ public class User : MonoBehaviour {
 	public static void DataUpdate ( Dictionary<string, object> data ) {
 		uUID = (string)data["UID"];
 		uName = (string)data["Name"];
-		uSta = (int)data["Sta"];
-		uLv = (int)data["Lv"];
-		uNowExp = (int)data["ExpNow"];
-		uNextExp = (int)data["ExpNext"];
-		uMoney = (int)data["Gold"];
+		uStaNow = (long)data["StaNow"];
+		uStaMax = (long)data["StaMax"];
+		uLv = (long)data["Lv"];
+		uExp = (long)data["Exp"];
+		uCoin = (long)data["Gold"];
 		uLoginTime = (string)data["LoginTime"];
-		uActiveParty = (string)data["party1"];
+		uActiveParty = (string)data["ActiveParty"];
 	}
 
 	/// <summary>
