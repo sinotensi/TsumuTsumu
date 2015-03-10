@@ -35,6 +35,9 @@ public class TopMenu : MonoBehaviour {
 		DataUpdate();
 	}
 
+	/// <summary>
+	/// Set Menu Data.
+	/// </summary>
 	public void DataUpdate () {
 		Debug.Log( "Updata user data!" );
 		string lvKey = (User.uLv).ToString();
@@ -69,7 +72,7 @@ public class TopMenu : MonoBehaviour {
 		if( !animaFlag )
 		{
 			tp.from = tp.to;
-			tp.to = new Vector3( 0.0f, 495f, 0.0f );
+			tp.to = new Vector3( 0.0f, 493f, 0.0f );
 			tp.duration = 0.3f;
 			tp.Play();
 			animaFlag = true;

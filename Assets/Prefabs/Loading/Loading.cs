@@ -12,6 +12,8 @@ public class Loading : MonoBehaviour {
 		LoadingView,
 		MyPageView,
 		PetsView,
+		GachaView,
+		GetPetView
 	}
 
 	public static State _state = State.LogoView;

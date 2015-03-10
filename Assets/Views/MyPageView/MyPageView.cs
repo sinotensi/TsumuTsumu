@@ -27,7 +27,8 @@ public class MyPageView : MonoBehaviour {
 	}
 
 	public void OnGacya () {
-
+		Loading._state = Loading.State.GachaView;
+		SceneController.NextScene( "LoadingView" );
 	}
 
 	public void OnOption () {
