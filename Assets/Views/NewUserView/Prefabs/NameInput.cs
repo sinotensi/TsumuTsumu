@@ -83,6 +83,7 @@ public class NameInput : MonoBehaviour {
 	/// Instances the user data.
 	/// </summary>
 	public void InstanceUser () {
+		Debug.Log( user );
 		string lvKey = ((long)user["Lv"]).ToString();
 		List<object> data = (List<object>)(lv[lvKey]);
 

@@ -5,18 +5,35 @@ using System.Collections.Generic;
 using MiniJSON;
 
 public class JSON_Manager : MonoBehaviour {
-	public static string[] loadDBPath = new string[]{ "User", "UserLv" };
+	public static string[] loadDBPath = new string[]{ "User", "UserLv/UserLv", "Pet", "PetState/PetState", "PetExp/NPetExp", "PetExp/RPetExp", "PetExp/SRPetExp" };
+	public static string[] loadPetDBPath = new string[]{ "Pets/u00001", "Pets/u00002", "Pets/u00003" };
 	public static string[] loadPath = new string[]{ "UserData" };
 	public static string[] savePath = new string[]{ "UserData.json" };
 
 	public static string jsonUser = "";
 	public static string jsonLv = "";
+	public static string jsonPet = "";
+	public static string jsonPetState = "";
+	public static string jsonNPetExp = "";
+	public static string jsonRPetExp = "";
+	public static string jsonSRPetExp = "";
+	public static List<string> jsonPetData = new List<string>();
+
 	/// <summary>
 	/// Initialize all data.
 	/// </summary>
 	public static void Initialize () {
 		jsonUser = JsonDBFile_Load( loadDBPath[0] );
 		jsonLv = JsonDBFile_Load( loadDBPath[1] );
+		jsonPet = JsonDBFile_Load( loadDBPath[2] );
+		jsonPetState = JsonDBFile_Load( loadDBPath[3] );
+		jsonNPetExp = JsonDBFile_Load( loadDBPath[4] );
+		jsonRPetExp = JsonDBFile_Load( loadDBPath[5] );
+		jsonSRPetExp = JsonDBFile_Load( loadDBPath[6] );
+		for( int i = 0; i < 3; ++i )
+		{
+			jsonPetData.Add( JsonDBFile_Load( loadPetDBPath[i] ) );
+		}
 	}
 
 	/// <summary>

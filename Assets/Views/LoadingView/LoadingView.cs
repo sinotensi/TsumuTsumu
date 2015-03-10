@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+
 public class LoadingView : MonoBehaviour {
 	public static string nextScene = "";
 	public static Dictionary<string, object> user = new Dictionary<string, object>();

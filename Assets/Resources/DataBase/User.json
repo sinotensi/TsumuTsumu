@@ -7,6 +7,8 @@
     "Exp": 0,
     "Cost": 0,
     "Gold": 0,
+    "PetsLen": 0,
+    "MaxPets": 35,
     "LoginTime": "",
     "ActiveParty": "party1"
 }
